@@ -1,0 +1,11 @@
+extends master.pug 
+block content
+
+        if error == false
+            .alert.alert-danger 
+                p Credencials incorrectes
+        form(action='/clientes/login' method='post')
+            h2 Hi!!
+            input(type='text' name='nif' placeholder='DNI')
+            input(type='password' name='password' placeholder='Password')
+            input(type='submit' value='Sign In')

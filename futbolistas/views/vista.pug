@@ -1,0 +1,18 @@
+doctype html
+head
+	title JUGADORES
+body
+	ul
+		li
+			a(href="/jugadores/insert") Añadir jugador
+		li
+			a(href="/jugadores/update") Actualizar jugador
+		li
+			a(href="/jugadores/delete") Eliminar jugador
+		li
+			a(href="/jugadores/select") Ver un jugador
+	if sinJugadores
+		p NO HAY JUGADORES
+	else
+		for jugador in jugadores
+			p ID: #{jugador._id} - NOMBRE: #{jugador.nombre} - DORSAL: #{jugador.dorsal} - POSICIÓN: #{jugador.posicion}

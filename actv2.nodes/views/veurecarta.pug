@@ -1,0 +1,63 @@
+include layout.pug 
+block content 
+div.container.m-5
+        div.row
+            div.offset-4.col-6
+                h3.text-muted.mb-5 Datos de la carta
+                    div.form-group
+                        br
+                        h6 Nombre paje 
+                        p.form-control.input-lg.panel-primary #{total.paje.nombre} #{total.paje.apellidos}
+                    div.form-group
+                        h6 Nombre niño 
+                        p.form-control.input-lg.panel-primary #{total.nino.fullName}
+                    div.form-group
+                        h6 Edad niño 
+                        p.form-control.input-lg.panel-primary #{total.nino.edad}
+                    div.form-group
+                        h6 Comportamiento 
+                        p.form-control.input-lg.panel-primary #{total.nino.comportamiento}
+                    div.form-group
+                        h6 Poblacion 
+                        p.form-control.input-lg.panel-primary #{total.nino.poblacion}
+                    div.form-group
+                        h6 Pais 
+                        p.form-control.input-lg.panel-primary #{total.nino.pais}
+                    div.form-group
+                        br
+                        h6.text-center Juguetes
+                            table.table.table-striped.mt-5
+                                thead
+                                    tr
+                                        th Nombre
+                                        th Precio
+                                        th Peso
+                                        th 
+                                tbody
+                                    for ju in total.peticiones
+                                        tr
+                                            td #{cart.nombre}
+                                            td #{cart.precio}
+                                            td #{cart.peso}
+                                            td
+                        br
+                    div.form-group
+                        h6 Precio total 
+                        p.form-control.input-lg.panel-primary #{Precio}
+                    div.form-group
+                        h6 Peso total 
+                        p.form-control.input-lg.panel-primary #{Peso}
+                    div.form-group
+                        h6 Acceptada 
+                        p.form-control.input-lg.panel-primary #{total.aceptada}
+                    div.form-group.text-right.mt-5
+                        button.btn.btn-primary(href="/cartas") Vale
+                if(errores)
+                    for error in errores
+                        div.alert.alert-danger #{error}
+
+
+
+
+
+

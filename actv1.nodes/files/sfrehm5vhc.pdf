@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>estructuras</title>
+    <link rel="stylesheet" type="text/css" href="prova.css" media="screen" />    
+</head>
+<body>
+	
+	<form required="yes" action="mailto:marti.corbalan@mataro.epiaedu.cat" method="get" enctype="text/plain">
+	
+        <div id="contenedor">
+
+            
+        </div>
+	
+
+	
+
+</body>
+</html>

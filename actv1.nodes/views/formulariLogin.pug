@@ -1,0 +1,8 @@
+extends master.pug 
+block content
+   .login
+   .form(action='/clientes/login' method='post')
+    h2 Has posat malament les credencials
+    input(type='text' name='dni' placeholder='DNI')
+    input(type='password' name='contra' placeholder='contrassenya')
+    input(type='submit' value='Entrar')

@@ -1,0 +1,33 @@
+extends layout.pug
+
+block content
+	div.container.m-5
+		div.row
+			div.offset-4.col-6
+				h3.text-muted.mb-5 Datos del contacto
+				- let urlAction = "/contactos/";
+				- let name = '';
+				- let phone = '';
+				- let mail = '';
+				- let instagram = '';
+				if (contacto)
+					if (contacto._id)
+						- urlAction = urlAction + contacto._id;
+					- name = contacto.name
+					- phone = contacto.phone
+					- mail = contacto.mail
+					- instagram = contacto.instagram
+				form.form-horizontal(role="form", action=urlAction, method="post")
+					div.form-group
+						input.form-control.input-lg.panel-primary#name(type="text", name="name", placeholder="nombre del contacto", value=name)
+					div.form-group
+						input.form-control.input-lg.panel-primary#phone(type="text", name="phone", placeholder="teléfono del contacto", value=phone)
+					div.form-group
+						input.form-control.input-lg.panel-primary#mail(type="mail", name="mail", placeholder="email del contacto", value=mail)
+					div.form-group
+						input.form-control.input-lg.panel-primary#instagram(type="text", name="instagram", placeholder="cuenta de instagram del contacto", value=instagram)
+					div.form-group.text-right.mt-5
+						button.btn.btn-primary(type="submit") Guardar
+				if(errores)
+					for error in errores
+						div.alert.alert-danger #{error}

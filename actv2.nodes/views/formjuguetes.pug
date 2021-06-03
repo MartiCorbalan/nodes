@@ -1,0 +1,32 @@
+include layout.pug
+block content
+	div.container.m-5
+		div.row
+			div.offset-4.col-6
+				h3.text-muted.mb-5 Datos del juguete
+				- let urlAction = "/juguetes/";
+				- let nombre = '';
+				- let precio = '';
+				- let peso = '';
+				- let stock = '';
+				if (juguetes)
+					if (juguetes._id)
+					- urlAction = urlAction + juguetes._id;
+					- nombre = juguetes.nombre
+					- precio = juguetes.precio
+					- peso = juguetes.peso
+					- stock = juguetes.stock
+				form.form-horizontal(role="form", action=urlAction, method="post")
+					div.form-group
+						input.form-control.input-lg.panel-primary#nombre(type="text", name="nombre", placeholder="Nom de la juguina", value=nombre)
+					div.form-group
+						input.form-control.input-lg.panel-primary#precio(type="text", name="precio", placeholder="Preu de la joguina", value=precio)
+					div.form-group
+						input.form-control.input-lg.panel-primary#peso(type="mail", name="peso", placeholder="Pes de la juguina", value=peso)
+					div.form-group
+						input.form-control.input-lg.panel-primary#stock(type="text", name="stock", placeholder="Stock de la juguina", value=stock)
+					div.form-group.text-right.mt-5
+						button.btn.btn-primary(type="submit") Guardar
+				if(errores)
+					for error in errores
+						div.alert.alert-danger #{error}

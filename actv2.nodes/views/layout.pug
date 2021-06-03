@@ -1,0 +1,28 @@
+doctype html
+head
+  meta(charset='utf-8')
+  title Reyes Magos!!
+  link(rel='icon' href='/images/reyes.png' type='image/x-icon')
+  link(rel='stylesheet' href='/css/bootstrap.min.css')
+  script(src='/js/jquery-3.2.1.slim.min.js')
+  script(src='/js/umd/popper.min.js')
+  script(src='/js/bootstrap.min.js')
+nav.navbar.navbar-expand-lg.navbar-dark.bg-secondary
+  #navbarCollapse.collapse.navbar-collapse.d-flex.justify-content-between
+    div
+      ul.navbar-nav.mr-auto
+        img(src='/images/reyes.png' height=80)
+        li.nav-item.mx-5
+          a.nav-link.text-primary(href='') 
+        li.nav-item.mx-5
+          a.nav-link.text-warning.bg-dark(href='/juguetes') Juguetes
+        li.nav-item.mx-5
+          a.nav-link.text-success.bg-dark(href='/cartas') Cartas
+        li.nav-item.mx-5
+          a.nav-link.text-warning.bg-dark(href='/juguetes/create') Crear juguetes 
+        if(paje) 
+          li.nav-item.mx-5
+            a.nav-link.text-primary.bg-dark(href='/') Sortir
+        else 
+          li.nav-item.mx-5
+            a.nav-link.text-primary.bg-dark(href='/') Acceso

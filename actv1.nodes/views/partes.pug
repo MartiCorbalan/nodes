@@ -1,0 +1,14 @@
+extends master.pug 
+block content
+
+    if (error == false)
+        <p> No has penjat un arxiu format PDF!
+    if (error == true)
+        <p> l'arxiu s'ha pujat correctament
+    <form action="/partes" enctype="multipart/form-data" method="post">
+        <div>Arxiu: <input type="file" name="multipleFiles" multiple="multiple" /></div>
+        <input type="submit" value="Upload" />
+        </form>
+    
+    
+            

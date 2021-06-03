@@ -1,0 +1,26 @@
+include layout.pug
+block content
+	div.container.m-5
+		div.row
+			div.offset-3.col-8
+				h3.text-muted.mb-5 Lista de cartas
+				form.form-horizontal(role="form", action="/cartas", method="get")
+					div.input-group.mb-3
+						input.form-control(type="text", name="search", placeholder="Buscar cartas...")
+						div.input-group-append
+							button.btn.btn-primary(type="submit") Buscar
+				if (sinCartas)
+					p.font-weight-bold No se han encontrado cartas
+				else
+					table.table.table-striped.mt-5
+						thead
+							tr
+								th nombre completo
+								th
+						tbody
+							for cart in carta
+								tr
+									td #{cart.nino.nombreCompleto}
+									td
+										a.btn.btn-primary.btn-sm.active.mr-3(href="/cartas/" + cart.nino._id + "/edit/", role="button", aria-pressed="true")
+											img(src="/images/pincel.png" height=20 weight=20)

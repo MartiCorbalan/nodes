@@ -1,0 +1,34 @@
+include layout.pug
+block content
+	div.container.m-5
+		div.row
+			div.offset-3.col-8
+				h3.text-muted.mb-5 Lista de juguetes
+				form.form-horizontal(role="form", action="/juguetes", method="get")
+					div.input-group.mb-3
+						input.form-control(type="text", name="search", placeholder="Buscar juguetes...")
+						div.input-group-append
+							button.btn.btn-primary(type="submit") Buscar
+				if (sinJuguetes)
+					p.font-weight-bold No se han encontrado juguetes
+				else
+					table.table.table-striped.mt-5
+						thead
+							tr
+								th nombre
+								th precio
+								th peso
+								th stock
+								th
+						tbody
+							for jug in juguetes
+								tr
+									td #{jug.nombre}
+									td #{jug.precio}
+									td #{jug.peso}
+									td #{jug.stock}
+									td
+										a.btn.btn-primary.btn-sm.active.mr-3(href="/juguetes/" + jug._id + "/edit/", role="button", aria-pressed="true")
+											img(src="/images/pincel.png" height=20 weight=20)
+										a.btn.btn-danger.btn-sm.active(href="/juguetes/" + jug._id + "/delete/", role="button", aria-pressed="true")
+											img(src="/images/elim.png" height=20 weight=20)
